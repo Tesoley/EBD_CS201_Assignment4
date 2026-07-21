@@ -10,4 +10,11 @@ with open('global_sales.csv', 'r', encoding = 'utf-8') as file:
     reader = csv.DictReader(file)
     sales_data = list(reader)
 
-    # successfully
+for key, value in regional_tariffs.items():
+    if value == 'N/A':
+        regional_tariffs[key] = float(0)
+    else:
+        regional_tariffs[key] = float(value)
+
+cleaned_dict = {key: float(0) if value == 'N/A' else float(value)
+                for key, value in regional_tariffs.items()}
