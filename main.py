@@ -78,3 +78,12 @@ with open('top_categories.json', 'w', encoding = 'utf-8') as file:
 df = pd.DataFrame(list(top_categories.items()), columns = ['category', 'net_profit'])
 df.index = range(1, len(top_categories)+1)
 print(df)
+
+plt.bar(top_categories.keys(), top_categories.values(), align = 'center', color = 'mediumblue')
+
+plt.xlabel('Category')
+plt.ylabel('Net Profit')
+plt.title('Top Categories')
+plt.ylim(7e6, 9e6) # this method was found in matplotlib documentation
+
+plt.show()
