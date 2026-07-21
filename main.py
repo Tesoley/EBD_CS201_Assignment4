@@ -52,3 +52,17 @@ with open('cleaned_sales_updated.csv', 'w', encoding = 'utf-8') as file:
     writer.writeheader()
     writer.writerows(sales_data)
     # print(sales_data)
+
+
+profit_by_category = {}
+
+with open('cleaned_sales_updated.csv', 'r', encoding = 'utf-8') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        category = row['product_category']
+        net_profit = float(row['net_profit'])
+        if category in profit_by_category:
+            profit_by_category[category] += net_profit
+        else:
+            profit_by_category[category] = net_profit
+    # print(profit_by_category)
