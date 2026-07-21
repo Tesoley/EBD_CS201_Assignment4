@@ -74,3 +74,7 @@ top_categories = dict(sorted(filtered_categories.items(), key = lambda x: x[1], 
 
 with open('top_categories.json', 'w', encoding = 'utf-8') as file:
     json.dump(top_categories, file, indent = 4)
+
+df = pd.DataFrame(list(top_categories.items()), columns = ['category', 'net_profit'])
+df.index = range(1, len(top_categories)+1)
+print(df)
