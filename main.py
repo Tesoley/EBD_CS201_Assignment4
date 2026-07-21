@@ -47,3 +47,8 @@ for row in sales_data:
     net_profit = revenue - (revenue * (tariff / 100))
     row['net_profit'] = net_profit
 
+with open('cleaned_sales_updated.csv', 'w', encoding = 'utf-8') as file:
+    writer = csv.DictWriter(file, fieldnames = sales_data[0].keys())
+    writer.writeheader()
+    writer.writerows(sales_data)
+    # print(sales_data)
