@@ -39,3 +39,11 @@ for row in sales_data:
         row['revenue'] = float(0)
     else:
         row['revenue'] = float(row['revenue'])
+
+for row in sales_data:
+    revenue = row['revenue']
+    region = row['region']
+    tariff = cleaned_dict[region]
+    net_profit = revenue - (revenue * (tariff / 100))
+    row['net_profit'] = net_profit
+
