@@ -71,3 +71,6 @@ with open('cleaned_sales_updated.csv', 'r', encoding = 'utf-8') as file:
 average_profit = sum(profit_by_category.values())/len(profit_by_category)
 filtered_categories = dict(filter(lambda x: x[1] > average_profit, profit_by_category.items()))
 top_categories = dict(sorted(filtered_categories.items(), key = lambda x: x[1], reverse = True))
+
+with open('top_categories.json', 'w', encoding = 'utf-8') as file:
+    json.dump(top_categories, file, indent = 4)
