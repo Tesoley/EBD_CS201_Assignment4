@@ -18,3 +18,24 @@ for key, value in regional_tariffs.items():
 
 cleaned_dict = {key: float(0) if value == 'N/A' else float(value)
                 for key, value in regional_tariffs.items()}
+
+for key, value in regional_tariffs.items():
+    if value == 'N/A':
+        regional_tariffs[key] = float(0)
+    else:
+        regional_tariffs[key] = float(value)
+
+cleaned_dict = {key: float(0) if value == 'N/A' else float(value)
+                for key, value in regional_tariffs.items()}
+
+
+for row in sales_data:
+    if row['quantity'] == 'N/A':
+        row['quantity'] = int(0)
+    else:
+        row['quantity'] = int(row['quantity'])
+
+    if row['revenue'] == 'N/A':
+        row['revenue'] = float(0)
+    else:
+        row['revenue'] = float(row['revenue'])
